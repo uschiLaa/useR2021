@@ -1,0 +1,121 @@
+---
+title: "Introduction to ggplot2"
+subtitle: "Workshop"
+author: "Ursula Laa"
+output:
+  xaringan::moon_reader:
+    css: ["kunoichi", "ninjutsu"]
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      ratio: '16:9'
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: ["libs/jquery/jquery.min.js", "libs/slides.js"]
+---
+layout: false
+class: split-75
+background-image: url("plots/title_slide_bkg.png")
+background-position: center
+background-size: contain
+
+<style type="text/css">
+.remark-slide-content{
+font-size: 30px;
+
+}
+code.r{
+  font-size: 24px;
+}
+
+</style>
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, width = 120)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(htmltools)
+opts_chunk$set(
+  echo = TRUE, warning = FALSE, message = FALSE, comment = "#>",
+  fig.path = 'figure/', cache.path = 'cache/', fig.align = 'center',
+  fig.width = 12, fig.height = 4, fig.show = 'hold',
+  cache = FALSE, external = TRUE, dev = 'png', dev.args = list(bg = "transparent")
+)
+mp4_vid <- function(src, width){
+  HTML(
+    paste0(
+      '<video width="', width, '" loop autoplay>
+        <source src="', src, '" type="video/mp4">
+      </video>'
+    )
+  )
+}
+```
+
+
+```{css, echo=FALSE}
+/* custom.css */
+:root{
+  --main-color1: #509e2f;
+  --main-color2: #bcbddc;
+  --main-color3: #efedf5;
+  --main-color4: #9DDAE5;
+  --text-color3: black;
+  --text-color4: #505050;
+  --code-inline-color: #4e5054;
+  --link-color: #006CAB;
+}
+.large { font-size: 150% }
+.largeish { font-size: 120% }
+.summarystyle { font-size: 150%;
+  line-height:150%;}
+.my-gray {color: #606060!important; }
+h1, h2, h3, body{
+  font-family: 'Helvetica';
+  font-weight: normal;
+}
+.tiny{ font-size: 25%}
+```
+
+
+.column[.content[
+
+<br>
+
+## **New displays for the visualization of multivariate data in the tourr package**
+
+<br>
+
+.my-gray[
+### **Ursula Laa**
+
+
+### Institute of Statistics
+### University of Natural Resources and Life Sciences
+### (BOKU)
+
+]
+
+]]
+
+.column[.top_abs.content[
+<img src="plots/Boku-wien.png" width="60%">
+]]
+
+---
+
+- intro slide from job talk
+- introduce sketches data, show tour, problem if data becomes large, overplotting especially near the center
+- two new options: slice or redistribute
+- slice display: diagrams to explain what a slice is
+- show example of hollow spheres
+- show sketches example
+- sage display. show problem of piling near the center (binned histogram)
+- explain the transformation, show concentric circles
+- show sketches example
+- show how the displays can be called from the tourr code
+- summary
+- thanks / references
+
