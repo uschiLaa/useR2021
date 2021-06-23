@@ -105,21 +105,6 @@ h1, h2, h3, body{
 ]]
 
 ---
-
-- intro slide from job talk
-- introduce sketches data, show tour, problem if data becomes large, overplotting especially near the center
-- two new options: slice or redistribute
-- slice display: diagrams to explain what a slice is
-- show example of hollow spheres
-- show sketches example
-- sage display. show problem of piling near the center (binned histogram)
-- explain the transformation, show concentric circles
-- show sketches example
-- show how the displays can be called from the tourr code
-- summary
-- thanks / references
-
----
 # Grand tour
 
 The **grand tour** displays a sequence of smoothly **interpolated projections**, and can reveal the shape of the distribution, clusters and outliers.
@@ -327,6 +312,9 @@ We correct for this difference via the radial transformation.
 ---
 # Pollen data
 
+We can use the sage display to better resolve small features near the center of a distribution.
+
+<img src="plots/pollen_sage.gif" width="300"/> <img src="plots/pollen_sage_R1.gif" width="300"/> <img src="plots/pollen_sage_gam20.gif" width="300"/>
 
 ---
 class: split-50
