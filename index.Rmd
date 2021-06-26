@@ -568,4 +568,33 @@ gridExtra::grid.arrange(t1, t2, t3, t4, t5, t6,
 .smaller[.center[ from [Google quickdraw](https://quickdraw.withgoogle.com)]]
 ]]
 
+---
 
+# Hand-drawn sketches
+
+Side-by-side gif of grand tour - slice tour - sage tour
+First slide showing everything, second slide highlighting one or two groups
+
+---
+# Summary
+
+- New displays make tour more useful for large data
+- We can visualize convex shapes (e.g. surfaces of geometric shapes), small features near the center of a distribution (as seen with the Pollen data) and better resolve grouping structures in large datasets (for example the different hand-drawn sketches)
+- Both displays are accessible through dedicated `display_` and `animate_` functions in the `tourr` package
+- Both displays rely on tuning parameters and would benefit from an interactive interface
+- Using the slicing definition we can also define *section pursuit* in analogy to *projection pursuit* and this was implemented as a *guided section tour*
+
+---
+# Thanks!
+
+<br>
+
+This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
+
+<br>
+
+My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme.
+
+<br>
+
+The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
