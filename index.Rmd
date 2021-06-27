@@ -4,7 +4,10 @@ subtitle: "Workshop"
 author: "Ursula Laa"
 output:
   xaringan::moon_reader:
-    css: ["kunoichi", "ninjutsu"]
+    css: 
+      - "kunoichi"
+      - "ninjutsu"
+      - "assets/monash-fonts.css"
     lib_dir: libs
     seal: false
     nature:
@@ -72,10 +75,6 @@ mp4_vid <- function(src, width){
 .summarystyle { font-size: 150%;
   line-height:150%;}
 .my-gray {color: #606060!important; }
-h1, h2, h3, body{
-  font-family: 'Helvetica';
-  font-weight: normal;
-}
 .tiny{ font-size: 25%}
 ```
 
@@ -86,16 +85,14 @@ h1, h2, h3, body{
 
 ## **New displays for the visualization of multivariate data in the tourr package**
 
-<br>
 
 .my-gray[
-### **Ursula Laa**
+.large[**Ursula Laa**]
 
-
-### Institute of Statistics
-### University of Natural Resources and Life Sciences
-### (BOKU)
-
+.largeish[ Institute of Statistics <br>
+University of Natural Resources and Life Sciences
+(BOKU)
+]
 ]
 
 ]]
@@ -314,7 +311,7 @@ We correct for this difference via the radial transformation.
 
 We can use the sage display to better resolve small features near the center of a distribution.
 
-<img src="plots/pollen_sage.gif" width="300"/> <img src="plots/pollen_sage_R1.gif" width="300"/> <img src="plots/pollen_sage_gam20.gif" width="300"/>
+<img src="plots/pollen_sage.gif" width="290"/> <img src="plots/pollen_sage_R1.gif" width="290"/> <img src="plots/pollen_sage_gam20.gif" width="290"/>
 
 ---
 class: split-50
