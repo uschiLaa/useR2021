@@ -81,20 +81,185 @@ h1, h2, h3, body{
 ]]
 
 ---
+# Grand tour
 
-- intro slide from job talk
-- introduce sketches data, show tour, problem if data becomes large, overplotting especially near the center
-- two new options: slice or redistribute
-- slice display: diagrams to explain what a slice is
-- show example of hollow spheres
-- show sketches example
-- sage display. show problem of piling near the center (binned histogram)
-- explain the transformation, show concentric circles
-- show sketches example
-- show how the displays can be called from the tourr code
-- summary
-- thanks / references
+The **grand tour** displays a sequence of smoothly **interpolated projections**, and can reveal the shape of the distribution, clusters and outliers.
 
+
+
+
+&lt;iframe src="4cube.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+&lt;iframe src="bbh.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+&lt;iframe src="pdfsense.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+
+---
+# Grand tour and large data
+
+With the tour we can learn about **multivariate** features in the data. Each view is showing a **linear projection** of the data, making interpretation straightforward.
+
+The standard displays are however limited in the case of **large data**:
+
+- Large number of **observations**: overplotting can hide features, especially in the case of concave distributions.
+- Large number of **variables**: projected data points tend to fall close to the center (crowding problem)
+
+--
+
+.center[Can we adapt the **display** to work better in those situations?]
+
+---
+# New displays
+
+The **slice tour**
+highlights only a subset of data points based on a sectioning condition to reveal local information and concave structures. This works well for data with a *large number of observations*.
+
+
+The **sage tour**
+adjusts the resolution based on the distance from the center to address the crowding problem. Even with about ten dimensions this can already be important!
+
+
+Both approaches have been implemented as new *display* functions in the `tourr` package:
+
+- `display_slice()`
+- `display_sage()`
+
+---
+# Slice tour
+
+The slice tour uses the **orthogonal distance** of each data point from a centered projection plane to define subsets of the data. Points close to the plane are **highlighted** in each projected view and can be compared to the overall (projected) distribution of points.
+
+.center[&lt;img src="plots/slice.png" width="60%"&gt;]
+
+---
+# Projection vs Slice
+
+.pull-left[&lt;img src="plots/4D_proj.png" width="49%"&gt;]
+--
+
+.pull-right[&lt;img src="plots/4D_slice.png" width="49%"&gt;]
+
+---
+# Slice tour of geometric shapes
+
+We can combine the slice display with a grand tour to gain intuition about a surface.
+
+
+.center[
+&lt;div &gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt; 3D sphere &lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="plots/sphere-3-anchored.gif" width = "90%"/&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+        &lt;div style="width: 33%; float: left"&gt;
+       &lt;b&gt;4D torus&lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="plots/torus-4-centered.gif" width = "90%" /&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt;Roman surface&lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="plots/roman-surface.gif" width = "90%"/&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+]
+
+
+---
+# Sage tour
+
+The sage display transforms the **radius** (i.e. the distance from the center) of all projected data points such that equal volume in the high-dimensional space gets projected onto equal area in the two-dimensional plane.
+
+Without any transformation the radial distribution of the volume and projected volume of a hypersphere are very different.
+
+
+.center[
+  &lt;img src="plots/cdf-1.png" width = "75%" /&gt;
+]
+
+---
+# Sage tour
+
+The sage display transforms the **radius** (i.e. the distance from the center) of all projected data points such that equal volume in the high-dimensional space gets projected onto equal area in the two-dimensional plane.
+
+We correct for this difference via the radial transformation.
+
+
+.center[
+  &lt;img src="plots/circles-1.png" width = "95%" /&gt;
+]
+
+---
+# Pollen data
+
+We can use the sage display to better resolve small features near the center of a distribution.
+
+&lt;img src="plots/pollen_sage.gif" width="300"/&gt; &lt;img src="plots/pollen_sage_R1.gif" width="300"/&gt; &lt;img src="plots/pollen_sage_gam20.gif" width="300"/&gt;
+
+---
+class: split-50
+
+.column[.content[
+# Hand-drawn sketches
+
+
+**Data example**: hand-drawn sketches of six different items, using a sample of 1000 observations from each class.
+
+
+**Data format**: `\(28\times 28\)` pixels, gray scale
+`\(\rightarrow\)` `\(28\times28=784\)` variables!
+
+Here we reduce the dimensionality to the **first five principal components** (about `\(20\%\)` of the total variance)
+
+We use the tour to check for separation between the classes in that 5D space and compare the standards scatter plot display, the slice display and the sage display.
+]]
+
+
+
+
+
+.column[.content.vmiddle[
+
+&lt;img src="figure/sketches-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+.smaller[.center[ from [Google quickdraw](https://quickdraw.withgoogle.com)]]
+]]
+
+---
+
+# Hand-drawn sketches
+
+&lt;img src="gif/projections.gif" width="300"/&gt; &lt;img src="gif/slices.gif" width="300"/&gt; &lt;img src="gif/sage.gif" width="300"/&gt;
+
+---
+
+# Hand-drawn sketches
+
+&lt;img src="gif/projections_banana.gif" width="300"/&gt; &lt;img src="gif/slices_banana.gif" width="300"/&gt; &lt;img src="gif/sage_banana.gif" width="300"/&gt;
+
+---
+# Summary
+
+- New displays make tour more useful for large data
+- We can visualize convex shapes (e.g. surfaces of geometric shapes), small features near the center of a distribution (as seen with the Pollen data) and better resolve grouping structures in large datasets (for example the different hand-drawn sketches)
+- Both displays are accessible through dedicated `display_` and `animate_` functions in the `tourr` package
+- Both displays rely on tuning parameters and would benefit from an interactive interface
+- Using the slicing definition we can also define *section pursuit* in analogy to *projection pursuit* and this was implemented as a *guided section tour*
+
+---
+# Thanks!
+
+&lt;br&gt;
+
+This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
+
+&lt;br&gt;
+
+My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme.
+
+&lt;br&gt;
+
+The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

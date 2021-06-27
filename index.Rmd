@@ -360,45 +360,25 @@ bases <- save_history(sk_5, max = 15)
 tour_path <- tourr::interpolate(bases, 0.1)
 d <- dim(tour_path)
 sk_tour <- NULL
-h <- 1
+v_rel <- 0.005
 
-col_crab <- col
-col_crab[sketches$word!="crab"] <- "grey"
-d_crab <- sk_5[order((sketches$word == "crab")),]
-col_crab <- col_crab[order((sketches$word == "crab"))]
-
-col_crab <- col
-col_crab[!(sketches$word %in% c("crab", "kangaroo"))] <- "grey"
-d_crab <- sk_5[order((sketches$word %in% c("crab", "kangaroo"))),]
-col_crab <- col_crab[order((sketches$word %in% c("crab", "kangaroo")))]
-
-col_cactus <- col
-col_cactus[sketches$word!="cactus"] <- "grey"
-d_cactus <- sk_5[order((sketches$word == "cactus")),]
-col_cactus <- col_cactus[order((sketches$word == "cactus"))]
-
-col_ff <- col
-col_ff[sketches$word!="flip flops"] <- "grey"
-d_ff <- sk_5[order((sketches$word == "flip flops")),]
-col_ff <- col_ff[order((sketches$word == "flip flops"))]
 
 col_banana <- col
-col_banana[!(sketches$word %in% c("banana", "boomerang"))] <- "grey"
-d_banana<- sk_5[order(sketches$word %in% c("banana", "boomerang")),]
-col_banana <- col_banana[order(sketches$word %in% c("banana", "boomerang"))]
+col_banana[!(sketches$word %in% c("banana", "cactus", "crab"))] <- "grey"
+d_banana<- sk_5[order(sketches$word %in% c("banana", "cactus", "crab")),]
+col_banana <- col_banana[order(sketches$word %in% c("banana", "cactus", "crab"))]
 
 
-render(sk_5, planned_tour(bases), display_slice(axes="off", col=col, v_rel=1, half_range = 5), "png", "gif/slices-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(sk_5, planned_tour(bases), display_xy(axes="off", col=col, half_range = 5), "png", "gif/projection-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_crab, planned_tour(bases), display_slice(axes="off", col=col_crab, v_rel=1, half_range = 5), "png", "gif/crabs_slice-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_cactus, planned_tour(bases), display_slice(axes="off", col=col_cactus, v_rel=1, half_range = 5), "png", "gif/cactus_slice-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_banana, planned_tour(bases), display_slice(axes="off", col=col_banana, v_rel=1, half_range = 5), "png", "gif/banana_slice-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_ff, planned_tour(bases), display_slice(axes="off", col=col_ff, v_rel=1, half_range = 5), "png", "gif/ff_slice-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
+render_gif(sk_5, planned_tour(bases), display_slice(axes="off", col=col, v_rel=1, half_range = 5), "gif/slices.gif", apf=0.1, frames = d[3], rescale = FALSE)
+render_gif(sk_5, planned_tour(bases), display_xy(axes="off", col=col, half_range = 5), "gif/projections.gif", apf=0.1, frames = d[3], rescale = FALSE)
+render_gif(sk_5, planned_tour(bases), display_sage(axes="off", col=col, gam = 5),
+       "gif/sage.gif", apf=0.1, frames = d[3], rescale = FALSE)
 
-render(d_crab, planned_tour(bases), display_xy(axes="off", col=col_crab, half_range = 5), "png", "gif/crabs_proj-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_cactus, planned_tour(bases), display_xy(axes="off", col=col_cactus, half_range = 5), "png", "gif/cactus_proj-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_banana, planned_tour(bases), display_xy(axes="off", col=col_banana, half_range = 5), "png", "gif/banana_proj-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
-render(d_ff, planned_tour(bases), display_xy(axes="off", col=col_ff, half_range = 5), "png", "gif/ff_proj-%03d.png", apf=0.1, frames = d[3], rescale = FALSE)
+render_gif(d_banana, planned_tour(bases), display_slice(axes="off", col=col_banana, v_rel=1, half_range = 5), "gif/slices_banana.gif", apf=0.1, frames = d[3], rescale = FALSE)
+render_gif(d_banana, planned_tour(bases), display_xy(axes="off", col=col_banana, half_range = 5), "gif/projections_banana.gif", apf=0.1, frames = d[3], rescale = FALSE)
+render_gif(d_banana, planned_tour(bases), display_sage(axes="off", col=col_banana, gam = 5),
+       "gif/sage_banana.gif", apf=0.1, frames = d[3], rescale = FALSE)
+
 
 
 ```
@@ -572,8 +552,13 @@ gridExtra::grid.arrange(t1, t2, t3, t4, t5, t6,
 
 # Hand-drawn sketches
 
-Side-by-side gif of grand tour - slice tour - sage tour
-First slide showing everything, second slide highlighting one or two groups
+<img src="gif/projections.gif" width="300"/> <img src="gif/slices.gif" width="300"/> <img src="gif/sage.gif" width="300"/>
+
+---
+
+# Hand-drawn sketches
+
+<img src="gif/projections_banana.gif" width="300"/> <img src="gif/slices_banana.gif" width="300"/> <img src="gif/sage_banana.gif" width="300"/>
 
 ---
 # Summary
