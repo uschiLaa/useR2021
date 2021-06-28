@@ -7,6 +7,7 @@
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/kunoichi.css" rel="stylesheet" />
     <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/monash-fonts.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -48,10 +49,6 @@ code.r{
 .summarystyle { font-size: 150%;
   line-height:150%;}
 .my-gray {color: #606060!important; }
-h1, h2, h3, body{
-  font-family: 'Helvetica';
-  font-weight: normal;
-}
 .tiny{ font-size: 25%}
 &lt;/style&gt;
 
@@ -62,16 +59,14 @@ h1, h2, h3, body{
 
 ## **New displays for the visualization of multivariate data in the tourr package**
 
-&lt;br&gt;
 
 .my-gray[
-### **Ursula Laa**
+.large[**Ursula Laa**]
 
-
-### Institute of Statistics
-### University of Natural Resources and Life Sciences
-### (BOKU)
-
+.largeish[ Institute of Statistics &lt;br&gt;
+University of Natural Resources and Life Sciences
+(BOKU)
+]
 ]
 
 ]]
@@ -194,7 +189,7 @@ We correct for this difference via the radial transformation.
 
 We can use the sage display to better resolve small features near the center of a distribution.
 
-&lt;img src="plots/pollen_sage.gif" width="300"/&gt; &lt;img src="plots/pollen_sage_R1.gif" width="300"/&gt; &lt;img src="plots/pollen_sage_gam20.gif" width="300"/&gt;
+&lt;img src="plots/pollen_sage.gif" width="290"/&gt; &lt;img src="plots/pollen_sage_R1.gif" width="290"/&gt; &lt;img src="plots/pollen_sage_gam20.gif" width="290"/&gt;
 
 ---
 class: split-50
@@ -229,36 +224,83 @@ We use the tour to check for separation between the classes in that 5D space and
 
 # Hand-drawn sketches
 
-&lt;img src="gif/projections.gif" width="300"/&gt; &lt;img src="gif/slices.gif" width="300"/&gt; &lt;img src="gif/sage.gif" width="300"/&gt;
+
+&lt;br&gt;
+
+.center[
+&lt;div &gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt; Projection &lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="gif/projections.gif" width = "90%"/&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+        &lt;div style="width: 33%; float: left"&gt;
+       &lt;b&gt;Slice&lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="gif/slices.gif" width = "90%" /&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt;Sage&lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="gif/sage.gif" width = "90%"/&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+]
+
 
 ---
 
 # Hand-drawn sketches
 
-&lt;img src="gif/projections_banana.gif" width="300"/&gt; &lt;img src="gif/slices_banana.gif" width="300"/&gt; &lt;img src="gif/sage_banana.gif" width="300"/&gt;
+&lt;br&gt;
+
+.center[
+&lt;div &gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt; Projection &lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="gif/projections_banana.gif" width = "90%"/&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+        &lt;div style="width: 33%; float: left"&gt;
+       &lt;b&gt;Slice&lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="gif/slices_banana.gif" width = "90%" /&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt;Sage&lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="gif/sage_banana.gif" width = "90%"/&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+]
+
+
 
 ---
 # Summary
 
-- New displays make tour more useful for large data
-- We can visualize convex shapes (e.g. surfaces of geometric shapes), small features near the center of a distribution (as seen with the Pollen data) and better resolve grouping structures in large datasets (for example the different hand-drawn sketches)
+- The **slice** and **sage** displays helps to better visualize large data with tour methods
+- We can see convex shapes, small features near the center of a distribution, and better resolve grouping structures in large datasets
 - Both displays are accessible through dedicated `display_` and `animate_` functions in the `tourr` package
-- Both displays rely on tuning parameters and would benefit from an interactive interface
+- The methods would benefit from an interactive interface for tuning of their parameters
 - Using the slicing definition we can also define *section pursuit* in analogy to *projection pursuit* and this was implemented as a *guided section tour*
 
 ---
+layout: false
+background-image: url("plots/title_slide_bkg.png")
+background-position: center
+background-size: contain
+
 # Thanks!
 
 &lt;br&gt;
 
 This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
 
-&lt;br&gt;
 
 My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme.
-
-&lt;br&gt;
-
 The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
