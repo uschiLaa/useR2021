@@ -16,6 +16,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       beforeInit: ["libs/jquery/jquery.min.js", "libs/slides.js"]
+      slideNumberFormat: "%current%" 
 ---
 layout: false
 class: split-75
@@ -313,6 +314,34 @@ We can use the sage display to better resolve small features near the center of 
 
 <img src="plots/pollen_sage.gif" width="290"/> <img src="plots/pollen_sage_R1.gif" width="290"/> <img src="plots/pollen_sage_gam20.gif" width="290"/>
 
+
+
+---
+# Summary
+
+- The **slice** and **sage** displays helps to better visualize large data with tour methods
+- We can see convex shapes, small features near the center of a distribution, and better resolve grouping structures in large datasets
+- Both displays are accessible through dedicated `display_` and `animate_` functions in the `tourr` package
+- The methods would benefit from an interactive interface for tuning of their parameters
+- Using the slicing definition we can also define *section pursuit* in analogy to *projection pursuit* and this was implemented as a *guided section tour*
+
+---
+layout: false
+background-image: url("plots/title_slide_bkg.png")
+background-position: center
+background-size: contain
+
+# Thanks!
+
+<br>
+
+This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
+
+
+My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme.
+The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
+
+---
 ---
 class: split-50
 
@@ -602,28 +631,3 @@ gridExtra::grid.arrange(t1, t2, t3, t4, t5, t6,
 ]
 
 
-
----
-# Summary
-
-- The **slice** and **sage** displays helps to better visualize large data with tour methods
-- We can see convex shapes, small features near the center of a distribution, and better resolve grouping structures in large datasets
-- Both displays are accessible through dedicated `display_` and `animate_` functions in the `tourr` package
-- The methods would benefit from an interactive interface for tuning of their parameters
-- Using the slicing definition we can also define *section pursuit* in analogy to *projection pursuit* and this was implemented as a *guided section tour*
-
----
-layout: false
-background-image: url("plots/title_slide_bkg.png")
-background-position: center
-background-size: contain
-
-# Thanks!
-
-<br>
-
-This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
-
-
-My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme.
-The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
