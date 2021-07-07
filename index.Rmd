@@ -1,6 +1,6 @@
 ---
-title: "Introduction to ggplot2"
-subtitle: "Workshop"
+title: "New tourr displays"
+subtitle: "Slice and sage tour"
 author: "Ursula Laa"
 output:
   xaringan::moon_reader:
